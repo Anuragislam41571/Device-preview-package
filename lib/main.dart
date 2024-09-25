@@ -1,10 +1,15 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-void main (){
+void main(){
+
+
+
+
+
 
 
   runApp(myapp());
-
 
 }
 class myapp extends StatelessWidget {
@@ -21,37 +26,36 @@ class home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
-        title: Text('Orientation builder'),
+        title: Text('MyApp'),
         backgroundColor: Colors.brown,
       ),
-      body: OrientationBuilder(builder: (context,orientation){
 
+ body: SizedBox(
 
-        if (orientation==Orientation.portrait){
-          return Container(
-
-            height: double.infinity,
-            width: double.infinity,
-            color: Colors.blue,
-            child: Center(child: Text('portrait mood')),
-          );
-        }
-        else return Container(
-
-
-          height: double.infinity,
-          width: double.infinity,
-          color: Colors.green,
-          child: Center(child: Text('landscape mood')),
-
-
-        );
+   height: 500,
+   width: 100,
 
 
 
+   child: FractionallySizedBox(
 
-      }),
+     heightFactor: 0.2,
+     widthFactor: 0.5,
+
+     child: Container(
+
+       color: Colors.blue,
+
+     ),
+
+   ),
+
+
+
+ ),
+
     );
   }
 }
