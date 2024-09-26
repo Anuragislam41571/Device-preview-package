@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:device_preview/device_preview.dart';
 
 void main(){
 
@@ -9,7 +9,10 @@ void main(){
 
 
 
-  runApp(myapp());
+  runApp( DevicePreview(
+    enabled: true,
+    builder: (context) => myapp(), // Wrap your app
+  ),);
 
 }
 class myapp extends StatelessWidget {
@@ -17,7 +20,18 @@ class myapp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: home(),);
+    return MaterialApp(
+
+
+
+      useInheritedMediaQuery: true,
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
+      theme: ThemeData.light(),
+
+
+
+      home: home(),);
   }
 }
 class home extends StatelessWidget {
